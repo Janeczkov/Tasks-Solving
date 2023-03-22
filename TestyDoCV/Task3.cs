@@ -8,13 +8,14 @@ namespace Tasks
 {
     public class Task3
     {
-        public static string ArrayChallenge(int[] arr)
+        public static int ArrayChallenge(int[] arr)
         {
             try
             {
-                if (arr.Length <= 2)
+                if (arr.Length <= 1)
                 {
-                    return "-1";
+                    Console.WriteLine("Wrong input array");
+                    return -1;
                 }
                 else
                 {
@@ -50,16 +51,17 @@ namespace Tasks
                     }
                     var returnString = string.Join(" | ", validPairs.Select(z => z.Item1 + "," + z.Item2));
                     Console.WriteLine(returnString);
+                    var validPairsCount = validPairs.Count;
+                    return validPairsCount;
 
                 }
-
-                return "0";
 
 
             }
             catch (Exception ex)
             {
-                return ex.ToString();
+                Console.WriteLine(ex.ToString());
+                return -1;
             }
         }
     }
